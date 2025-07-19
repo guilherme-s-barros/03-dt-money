@@ -10,14 +10,14 @@ export const SummaryContainer = styled.section`
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
-  transform: translateY(-50%);
+  margin-top: -5rem;
 `
 
 type SummaryCardVariant = 'primary' | 'brand'
 
-const variantMap = {
+const summaryCardVariantMap = {
   primary: 'gray-600',
-  brand: 'green-500',
+  brand: 'green-700',
 } as const satisfies Record<SummaryCardVariant, string>
 
 interface SummaryCardProps {
@@ -25,7 +25,7 @@ interface SummaryCardProps {
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`
-  background: ${props => props.theme[variantMap[props.$variant ?? 'primary']]};
+  background: ${props => props.theme[summaryCardVariantMap[props.$variant ?? 'primary']]};
   border-radius: 0.5rem;
   padding: 2rem;
 
