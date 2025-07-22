@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "serve": "json-server db.json --port 3333",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
@@ -21,6 +22,7 @@
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
     "globals": "^16.3.0",
+    "json-server": "^1.0.0-beta.3",
     "typescript": "~5.8.3",
     "vite": "^7.0.4"
   },
