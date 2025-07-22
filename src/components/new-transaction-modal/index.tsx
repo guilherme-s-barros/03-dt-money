@@ -1,7 +1,17 @@
-import { ArrowCircleDownIcon, ArrowCircleUpIcon, XIcon } from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
+import {
+  ArrowCircleDownIcon,
+  ArrowCircleUpIcon,
+  XIcon
+} from '@phosphor-icons/react'
 
-import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from './styles'
+import {
+  CloseButton,
+  Content,
+  Overlay,
+  TransactionType,
+  TransactionTypeButton
+} from './styles'
 
 export function NewTransactionModal() {
   return (

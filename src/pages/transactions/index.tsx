@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Header } from '../../components/header'
 import { Summary } from '../../components/summary'
 import { SearchForm } from './components/search-form'
+
+import { useTransactions } from '../../hooks/use-transactions'
 
 import {
   PriceHighlight,
@@ -9,28 +10,8 @@ import {
   TransactionsTable
 } from './styles'
 
-interface Transaction {
-  id: number,
-  description: string,
-  type: 'income' | 'outcome',
-  category: string,
-  amount: number,
-  createdAt: string
-}
-
 export function Transactions() {
-  const [transactions, setTransactions] = useState<Transaction[]>([])
-
-  useEffect(() => {
-    loadTransactions()
-  }, [])
-
-  async function loadTransactions() {
-    const response = await fetch('http://localhost:3333/transactions')
-    const data = await response.json() as Transaction[]
-
-    setTransactions(data)
-  }
+  const { transactions } = useTransactions()
 
   return (
     <div>
