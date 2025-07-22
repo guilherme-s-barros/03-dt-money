@@ -4,6 +4,8 @@ import { SearchForm } from './components/search-form'
 
 import { useTransactions } from '../../hooks/use-transactions'
 
+import { currencyFormatter, dateFormatter } from '../../utils/formatter'
+
 import {
   PriceHighlight,
   TransactionsContainer,
@@ -29,11 +31,12 @@ export function Transactions() {
                   <td width="50%">{transaction.description}</td>
                   <td>
                     <PriceHighlight $variant={transaction.type}>
-                      {transaction.amount}
+                      {transaction.type === 'outcome' && '- '}
+                      {currencyFormatter.format(transaction.amount)}
                     </PriceHighlight>
                   </td>
                   <td>{transaction.category}</td>
-                  <td>{transaction.createdAt}</td>
+                  <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
                 </tr>
               )
             })}

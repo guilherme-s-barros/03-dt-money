@@ -5,8 +5,11 @@ import {
   CurrencyDollarIcon
 } from '@phosphor-icons/react'
 
-import { SummaryCard, SummaryContainer } from './styles'
 import { useTransactions } from '../../hooks/use-transactions'
+
+import { currencyFormatter } from '../../utils/formatter'
+
+import { SummaryCard, SummaryContainer } from './styles'
 
 export function Summary() {
   const theme = useTheme()
@@ -31,7 +34,7 @@ export function Summary() {
           <ArrowCircleUpIcon size={32} color={theme['green-300']} />
         </header>
 
-        <strong>{income}</strong>
+        <strong>{currencyFormatter.format(income)}</strong>
       </SummaryCard>
 
       <SummaryCard>
@@ -40,7 +43,7 @@ export function Summary() {
           <ArrowCircleDownIcon size={32} color={theme['red-300']} />
         </header>
 
-        <strong>{outcome}</strong>
+        <strong>{currencyFormatter.format(outcome)}</strong>
       </SummaryCard>
 
       <SummaryCard $variant="brand">
@@ -49,7 +52,7 @@ export function Summary() {
           <CurrencyDollarIcon size={32} color={theme['white']} />
         </header>
 
-        <strong>{total}</strong>
+        <strong>{currencyFormatter.format(total)}</strong>
       </SummaryCard>
     </SummaryContainer>
   )
