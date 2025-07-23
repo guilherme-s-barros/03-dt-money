@@ -5,7 +5,7 @@ import {
   CurrencyDollarIcon
 } from '@phosphor-icons/react'
 
-import { useTransactions } from '../../hooks/use-transactions'
+import { useSummary } from '../../hooks/use-summary'
 
 import { currencyFormatter } from '../../utils/formatter'
 
@@ -13,18 +13,7 @@ import { SummaryCard, SummaryContainer } from './styles'
 
 export function Summary() {
   const theme = useTheme()
-  const { transactions } = useTransactions()
-
-  const { income, outcome } = transactions.reduce(
-    (summary, transaction) => {
-      summary[transaction.type] += transaction.amount
-
-      return summary
-    },
-    { income: 0, outcome: 0 }
-  )
-
-  const total = income - outcome
+  const { income, outcome, total } = useSummary()
 
   return (
     <SummaryContainer>
