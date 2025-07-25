@@ -9,9 +9,12 @@ export interface Transaction {
   createdAt: string
 }
 
+export type CreateTransactionInputs = Omit<Transaction, 'id' | 'createdAt'>
+
 interface TransactionsContextData {
   transactions: Transaction[]
   fetchTransactions(query?: string): Promise<void>
+  createTransaction(data: CreateTransactionInputs): Promise<void>
 }
 
 export const TransactionsContext = createContext({} as TransactionsContextData)

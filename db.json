@@ -31,6 +31,62 @@
       "category": "Alimentação",
       "amount": 600,
       "createdAt": "2025-07-25T10:00:00.505Z"
+    },
+    {
+      "description": "Teste",
+      "amount": 20,
+      "category": "Venda",
+      "type": "outcome",
+      "createdAt": "2025-07-25T18:18:24.653Z",
+      "id": 5
+    },
+    {
+      "description": "Desenvolvimento de app",
+      "amount": 10000,
+      "category": "Venda",
+      "type": "income",
+      "createdAt": "2025-07-25T18:20:23.728Z",
+      "id": 6
+    },
+    {
+      "description": "Teste 2",
+      "amount": 2000,
+      "category": "Sei la",
+      "type": "outcome",
+      "createdAt": "2025-07-25T18:23:26.716Z",
+      "id": 7
+    },
+    {
+      "description": "Teste 3",
+      "amount": 100,
+      "category": "Teste",
+      "type": "outcome",
+      "createdAt": "2025-07-25T18:32:40.374Z",
+      "id": 8
+    },
+    {
+      "description": "Teste 4",
+      "amount": 1000,
+      "category": "Teste 2",
+      "type": "income",
+      "createdAt": "2025-07-25T18:37:44.631Z",
+      "id": 9
+    },
+    {
+      "description": "Teste 5",
+      "amount": 5,
+      "category": "Teste 3",
+      "type": "outcome",
+      "createdAt": "2025-07-25T18:51:59.199Z",
+      "id": 10
+    },
+    {
+      "description": "dfsef",
+      "amount": 3434,
+      "category": "fdfsef",
+      "type": "outcome",
+      "createdAt": "2025-07-25T18:52:33.169Z",
+      "id": 11
     }
   ]
 }

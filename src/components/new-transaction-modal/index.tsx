@@ -8,6 +8,8 @@ import {
   XIcon
 } from '@phosphor-icons/react'
 
+import { useTransactions } from '../../hooks/use-transactions'
+
 import {
   CloseButton,
   Content,
@@ -26,10 +28,13 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export function NewTransactionModal() {
+  const { createTransaction } = useTransactions()
+
   const {
     control,
     register,
     handleSubmit,
+    reset,
     formState: { isSubmitting }
   } = useForm({
     resolver: zodResolver(newTransactionFormSchema),
@@ -39,9 +44,8 @@ export function NewTransactionModal() {
   })
 
   async function handleNewTransaction(data: NewTransactionFormInputs) {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    console.log(data)
+    await createTransaction(data)
+    reset()
   }
 
   return (
