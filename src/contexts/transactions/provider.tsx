@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react'
 
 import { TransactionsContext, type Transaction } from './context'
+import { api } from '../../lib/api'
 
 interface TransactionsContextProps {
   children: ReactNode
@@ -14,16 +15,13 @@ export function TransactionsProvider({ children }: TransactionsContextProps) {
   }, [])
 
   async function fetchTransactions(query?: string) {
-    const url = new URL('http://localhost:3333/transactions')
+    const response = await api.get<Transaction[]>('/transactions', {
+      params: {
+        q: query
+      }
+    })
 
-    if (query) {
-      url.searchParams.append('q', query)
-    }
-
-    const response = await fetch(url)
-    const data = await response.json() as Transaction[]
-
-    setTransactions(data)
+    setTransactions(response.data)
   }
 
   return (
