@@ -16,16 +16,16 @@ export const SummaryContainer = styled.section`
 type SummaryCardVariant = 'primary' | 'brand'
 
 const summaryCardVariantMap = {
-  primary: 'gray-600',
-  brand: 'green-700',
+	primary: 'gray-600',
+	brand: 'green-700',
 } as const satisfies Record<SummaryCardVariant, string>
 
 interface SummaryCardProps {
-  $variant?: SummaryCardVariant
+	$variant?: SummaryCardVariant
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`
-  background: ${props => props.theme[summaryCardVariantMap[props.$variant ?? 'primary']]};
+  background: ${(props) => props.theme[summaryCardVariantMap[props.$variant ?? 'primary']]};
   border-radius: 0.5rem;
   padding: 2rem;
 
@@ -33,7 +33,7 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: ${props => props.theme['gray-300']}
+    color: ${(props) => props.theme['gray-300']}
   }
 
   strong {

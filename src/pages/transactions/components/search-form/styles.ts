@@ -8,12 +8,12 @@ export const SearchFormContainer = styled.form`
     flex: 1;
     border: 0;
     border-radius: 0.5rem;
-    background: ${props => props.theme['gray-900']};
-    color: ${props => props.theme['gray-300']};
+    background: ${(props) => props.theme['gray-900']};
+    color: ${(props) => props.theme['gray-300']};
     padding: 1rem;
 
     &::placeholder {
-      color: ${props => props.theme['gray-500']};
+      color: ${(props) => props.theme['gray-500']};
     }
   }
 
@@ -24,9 +24,9 @@ export const SearchFormContainer = styled.form`
 
     padding: 1rem;
     background: transparent;
-    border: 1px solid ${props => props.theme['green-300']};
+    border: 1px solid ${(props) => props.theme['green-300']};
     border-radius: 0.5rem;
-    color: ${props => props.theme['green-300']};
+    color: ${(props) => props.theme['green-300']};
     font-weight: bold;
     cursor: pointer;
 
@@ -36,16 +36,16 @@ export const SearchFormContainer = styled.form`
       color 0.2s;
 
     &:disabled {
-      background: ${props => props.theme['green-700']};
-      border-color: ${props => props.theme['green-700']};
-      color: ${props => props.theme['gray-300']};
+      background: ${(props) => props.theme['green-700']};
+      border-color: ${(props) => props.theme['green-700']};
+      color: ${(props) => props.theme['gray-300']};
       cursor: not-allowed;
     }
 
     &:not(:disabled):hover {
-      background: ${props => props.theme['green-500']};
-      border-color: ${props => props.theme['green-500']};
-      color: ${props => props.theme.white};
+      background: ${(props) => props.theme['green-500']};
+      border-color: ${(props) => props.theme['green-500']};
+      color: ${(props) => props.theme.white};
     }
   }
 `
