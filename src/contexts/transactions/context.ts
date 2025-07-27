@@ -9,11 +9,16 @@ export interface Transaction {
 	createdAt: string
 }
 
+export interface FetchTransactionsParams {
+	query?: string
+	signal?: AbortSignal
+}
+
 export type CreateTransactionInputs = Omit<Transaction, 'id' | 'createdAt'>
 
 interface TransactionsContextData {
 	transactions: Transaction[]
-	fetchTransactions(query?: string): Promise<void>
+	fetchTransactions(params: FetchTransactionsParams): Promise<void>
 	createTransaction(data: CreateTransactionInputs): Promise<void>
 }
 

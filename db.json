@@ -1,92 +1,20 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "description": "Desenvolvimento de site",
-      "type": "income",
-      "category": "Venda",
-      "amount": 14000,
-      "createdAt": "2025-07-22T10:00:00.505Z"
-    },
-    {
-      "id": 2,
-      "description": "Aluguel de apartamento",
-      "type": "outcome",
-      "category": "Moradia",
-      "amount": 1500,
-      "createdAt": "2025-07-23T10:00:00.505Z"
-    },
-    {
-      "id": 3,
-      "description": "Venda de carro",
-      "type": "income",
-      "category": "Venda",
-      "amount": 30000,
-      "createdAt": "2025-07-24T10:00:00.505Z"
-    },
-    {
-      "id": 4,
-      "description": "Compra de supermercado",
-      "type": "outcome",
-      "category": "Alimentação",
-      "amount": 600,
-      "createdAt": "2025-07-25T10:00:00.505Z"
-    },
-    {
-      "description": "Teste",
-      "amount": 20,
-      "category": "Venda",
-      "type": "outcome",
-      "createdAt": "2025-07-25T18:18:24.653Z",
-      "id": 5
-    },
-    {
       "description": "Desenvolvimento de app",
       "amount": 10000,
       "category": "Venda",
       "type": "income",
-      "createdAt": "2025-07-25T18:20:23.728Z",
-      "id": 6
+      "createdAt": "2025-07-27T20:28:07.912Z",
+      "id": 1
     },
     {
-      "description": "Teste 2",
-      "amount": 2000,
-      "category": "Sei la",
+      "description": "Hamburguer",
+      "amount": 25,
+      "category": "Alimentação",
       "type": "outcome",
-      "createdAt": "2025-07-25T18:23:26.716Z",
-      "id": 7
-    },
-    {
-      "description": "Teste 3",
-      "amount": 100,
-      "category": "Teste",
-      "type": "outcome",
-      "createdAt": "2025-07-25T18:32:40.374Z",
-      "id": 8
-    },
-    {
-      "description": "Teste 4",
-      "amount": 1000,
-      "category": "Teste 2",
-      "type": "income",
-      "createdAt": "2025-07-25T18:37:44.631Z",
-      "id": 9
-    },
-    {
-      "description": "Teste 5",
-      "amount": 5,
-      "category": "Teste 3",
-      "type": "outcome",
-      "createdAt": "2025-07-25T18:51:59.199Z",
-      "id": 10
-    },
-    {
-      "description": "dfsef",
-      "amount": 3434,
-      "category": "fdfsef",
-      "type": "outcome",
-      "createdAt": "2025-07-25T18:52:33.169Z",
-      "id": 11
+      "createdAt": "2025-07-27T20:33:39.819Z",
+      "id": 2
     }
   ]
 }

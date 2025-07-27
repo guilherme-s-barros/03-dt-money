@@ -3,6 +3,7 @@ import { type ReactNode, useEffect, useState } from 'react'
 import { api } from '../../lib/api'
 import {
 	type CreateTransactionInputs,
+	type FetchTransactionsParams,
 	type Transaction,
 	TransactionsContext,
 } from './context'
@@ -15,11 +16,22 @@ export function TransactionsProvider({ children }: TransactionsContextProps) {
 	const [transactions, setTransactions] = useState<Transaction[]>([])
 
 	useEffect(() => {
-		fetchTransactions()
-	})
+		const controller = new AbortController()
+		const signal = controller.signal
 
-	async function fetchTransactions(query?: string) {
+		fetchTransactions({ signal })
+
+		return () => {
+			controller.abort('Component was unmounted.')
+		}
+	}, [])
+
+	async function fetchTransactions({
+		query,
+		signal,
+	}: FetchTransactionsParams = {}) {
 		const response = await api.get<Transaction[]>('/transactions', {
+			signal,
 			params: {
 				_sort: 'createdAt',
 				_order: 'desc',

@@ -23,8 +23,8 @@ export function SearchForm() {
 		resolver: zodResolver(searchFormSchema),
 	})
 
-	async function handleSearchTransactions(data: SearchFormInputs) {
-		await fetchTransactions(data.query)
+	async function handleSearchTransactions({ query }: SearchFormInputs) {
+		await fetchTransactions({ query })
 	}
 
 	return (
