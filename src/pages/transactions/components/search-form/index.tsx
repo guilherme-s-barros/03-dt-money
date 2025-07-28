@@ -13,7 +13,7 @@ const searchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function SearchForm() {
-	const { fetchTransactions } = useTransactions()
+	const fetchTransactions = useTransactions('fetchTransactions')
 
 	const {
 		register,
@@ -30,7 +30,7 @@ export function SearchForm() {
 	return (
 		<SearchFormContainer onSubmit={handleSubmit(handleSearchTransactions)}>
 			<input
-				type="text"
+				type="search"
 				placeholder="Busque por transações"
 				{...register('query')}
 			/>

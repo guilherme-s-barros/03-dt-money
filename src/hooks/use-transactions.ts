@@ -1,7 +1,12 @@
-import { useContext } from 'react'
+import { useContextSelector } from 'use-context-selector'
 
-import { TransactionsContext } from '../contexts/transactions/context'
+import {
+	TransactionsContext,
+	type TransactionsContextData,
+} from '../contexts/transactions/context'
 
-export function useTransactions() {
-	return useContext(TransactionsContext)
+export function useTransactions<Selector extends keyof TransactionsContextData>(
+	selector: Selector,
+): TransactionsContextData[Selector] {
+	return useContextSelector(TransactionsContext, (context) => context[selector])
 }

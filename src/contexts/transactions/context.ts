@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext } from 'use-context-selector'
 
 export interface Transaction {
 	id: number
@@ -16,7 +16,7 @@ export interface FetchTransactionsParams {
 
 export type CreateTransactionInputs = Omit<Transaction, 'id' | 'createdAt'>
 
-interface TransactionsContextData {
+export interface TransactionsContextData {
 	transactions: Transaction[]
 	fetchTransactions(params: FetchTransactionsParams): Promise<void>
 	createTransaction(data: CreateTransactionInputs): Promise<void>
