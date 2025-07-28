@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useState } from 'react'
+import { type ReactNode, useCallback, useEffect, useState } from 'react'
 
 import { api } from '../../lib/api'
 import {
@@ -26,35 +26,40 @@ export function TransactionsProvider({ children }: TransactionsContextProps) {
 		}
 	}, [])
 
-	async function fetchTransactions({
-		query,
-		signal,
-	}: FetchTransactionsParams = {}) {
-		const response = await api.get<Transaction[]>('/transactions', {
-			signal,
-			params: {
-				_sort: 'createdAt',
-				_order: 'desc',
-				q: query,
-			},
-		})
+	const fetchTransactions = useCallback(
+		async (data: FetchTransactionsParams = {}) => {
+			const { query, signal } = data
 
-		setTransactions(response.data)
-	}
+			const response = await api.get<Transaction[]>('/transactions', {
+				signal,
+				params: {
+					_sort: 'createdAt',
+					_order: 'desc',
+					q: query,
+				},
+			})
 
-	async function createTransaction(data: CreateTransactionInputs) {
-		const { description, amount, category, type } = data
+			setTransactions(response.data)
+		},
+		[],
+	)
 
-		const response = await api.post('/transactions', {
-			description,
-			amount,
-			category,
-			type,
-			createdAt: new Date(),
-		})
+	const createTransaction = useCallback(
+		async (data: CreateTransactionInputs) => {
+			const { description, amount, category, type } = data
 
-		setTransactions((state) => [response.data, ...state])
-	}
+			const response = await api.post('/transactions', {
+				description,
+				amount,
+				category,
+				type,
+				createdAt: new Date(),
+			})
+
+			setTransactions((state) => [response.data, ...state])
+		},
+		[],
+	)
 
 	return (
 		<TransactionsContext.Provider
