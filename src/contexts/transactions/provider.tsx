@@ -15,17 +15,6 @@ interface TransactionsContextProps {
 export function TransactionsProvider({ children }: TransactionsContextProps) {
 	const [transactions, setTransactions] = useState<Transaction[]>([])
 
-	useEffect(() => {
-		const controller = new AbortController()
-		const signal = controller.signal
-
-		fetchTransactions({ signal })
-
-		return () => {
-			controller.abort('Component was unmounted.')
-		}
-	}, [])
-
 	const fetchTransactions = useCallback(
 		async (data: FetchTransactionsParams = {}) => {
 			const { query, signal } = data
@@ -60,6 +49,17 @@ export function TransactionsProvider({ children }: TransactionsContextProps) {
 		},
 		[],
 	)
+
+	useEffect(() => {
+		const controller = new AbortController()
+		const signal = controller.signal
+
+		fetchTransactions({ signal })
+
+		return () => {
+			controller.abort('Component was unmounted.')
+		}
+	}, [fetchTransactions])
 
 	return (
 		<TransactionsContext.Provider

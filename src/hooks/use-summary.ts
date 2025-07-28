@@ -1,22 +1,32 @@
+import { useMemo } from 'react'
+
 import { useTransactions } from './use-transactions'
 
 export function useSummary() {
 	const transactions = useTransactions('transactions')
 
-	const { income, outcome } = transactions.reduce(
-		(summary, transaction) => {
-			summary[transaction.type] += transaction.amount
+	const summary = useMemo(
+		() =>
+			transactions.reduce(
+				(acc, transaction) => {
+					if (transaction.type === 'income') {
+						acc.income += transaction.amount
+						acc.total += transaction.amount
+					} else {
+						acc.outcome += transaction.amount
+						acc.total -= transaction.amount
+					}
 
-			return summary
-		},
-		{ income: 0, outcome: 0 },
+					return acc
+				},
+				{
+					income: 0,
+					outcome: 0,
+					total: 0,
+				},
+			),
+		[transactions],
 	)
 
-	const total = income - outcome
-
-	return {
-		income,
-		outcome,
-		total,
-	}
+	return summary
 }
